@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>zdk-marked</title>
+        
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" >
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        
+        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+        
+        <script src="../platform/platform.js"></script>
+        <link rel="import" href="zdk-marked.htm">
+        
+        <style>
+            body {
+                font-family: Oxygen, Verdana, Helvetica;
+                font-size:14px;
+            }
+            zdk-marked {
+                border:1px solid black;
+                height: 300px;
+                overflow: auto;
+                background:GhostWhite;
+                padding:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>zdk-marked</h1>
+        
+        <zdk-marked>
+# Introduction
+
+Cette application doit permettre la saisie de fichier au format MarkDown et d'en faire un rendu que ce soit en version desktop ou en version mobile.
+
+# Titre 1
+## Titre 2
+### Titre 3
+#### Titre 4
+##### Titre 5
+###### Titre 6
+
+Un exemple de tableau
+
+|   C1     |   C2    |   C3      |
+|:---------|:-------:|----------:|
+| label 1  | label 2 | value     |
+| label 1  | label 2 | value     |
+| label 1  |         | _value_   |
+| label 1  | label 2 | **value** |
+
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+Inline link : [link](http://post-it.zedesk.net)
+
+- item 1
+- item 2
+  - item 2.1
+
+    it's also easy to add a paragraphe in a item list
+
+  - item 2.2
+- item 3
+  1. item 3.1
+  2. item 3.2
+
+code HTML de la page de test
+        </zdk-marked>
+        
+        <h3>use a file source</h3>
+        <zdk-marked src="test/test2.md"></zdk-marked>
+    </body>
+</html>

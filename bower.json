@@ -21,6 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "polymer/polymer#~0.2.4"
+    "polymer": "polymer/polymer#~0.2.4",
+    "highlightjs": "~8.0.0"
   }
 }
