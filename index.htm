@@ -80,7 +80,7 @@ code HTML de la page de test
 		
 		<script>
 		window.addEventListener("polymer-ready", function() {
-			var unresolveds = document.querySelector("[unresolved]");
+			var unresolveds = document.querySelectorAll("[unresolved]");
 			[].slice.call(unresolveds,0).forEach( function(item) {
 				item.removeAttribute("unresolved");
 			})
