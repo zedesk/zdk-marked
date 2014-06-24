@@ -3,61 +3,64 @@
 <script src="../highlightjs/highlight.pack.js"></script>
 
 <polymer-element name="zdk-marked" attributes="src">
-    <template>
-        <link rel="stylesheet" href="zdk-marked.css">
-        <link rel="stylesheet" href="../highlightjs/styles/magula.css">
-        <style>
-		:host {
-			display:block;
-		}
+	<template>
+		<link rel="stylesheet" href="zdk-marked.css">
+		<link rel="stylesheet" href="../highlightjs/styles/magula.css">
+		<style>
+			:host {
+				display:block;
+			}
 		</style>
-        <div id="markdown"></div>
-    </template>
-    <script>
-    Polymer('zdk-marked',{
-        src : "",
-        
-        ready : function() {
-            hljs.initHighlightingOnLoad();
+		<div id="markdown"></div>
+	</template>
+	<script>
+		Polymer('zdk-marked',{
+			src : "",
+			ready : function() {
+				hljs.initHighlightingOnLoad();
 
-            var options = {
-                gfm: true,
-                highlight: function (code, lang) {
-                    return hljs.highlightAuto(code).value;
-                },
-                tables: true,
-                breaks: false,
-                pedantic: false,
-                sanitize: false,
-                smartLists: true,
-                smartypants: false,
-                langPrefix: 'lang-'
-            };
-            marked.setOptions(options);
-            
-            console.log("ready");
-            var text = "";
-            
-            if(this.src) {
-                console.info("src : ",this.src);
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET",this.src,false);
-                xhr.send(null);
-                text = xhr.responseText;    
-            } else {
-                text = this.textContent;
-            }
-            
-            this.toHTML(text);
-            
-        },
-        toHTML: function(text) {
-            var that= this;
-            marked(text, {}, function (err, content) {
-                that.$.markdown.innerHTML = content;
-            });
-        }
-        
-    });
-    </script>
+				var options = {
+					gfm: true,
+					highlight: function (code, lang) {
+					    return hljs.highlightAuto(code).value;
+					},
+					tables: true,
+					breaks: false,
+					pedantic: false,
+					sanitize: false,
+					smartLists: true,
+					smartypants: false,
+					langPrefix: 'lang-'
+				};
+				marked.setOptions(options);
+				console.log("ready");
+			},
+			updateSrc: function() {
+				var text = "";
+				
+				if(this.src) {
+					console.info("src : ",this.src);
+					var xhr = new XMLHttpRequest();
+					xhr.open("GET",this.src,false);
+					xhr.send(null);
+					text = xhr.responseText;    
+				} else {
+					text = this.textContent;
+				}
+				
+				this.toHTML(text);
+			},
+			srcChanged: function(oldValue,newValue) {
+				if(newValue === oldValue) return;
+				this.src = newValue;
+				this.updateSrc();
+			},
+			toHTML: function(text) {
+				var that= this;
+				marked(text, {}, function (err, content) {
+					that.$.markdown.innerHTML = content;
+				});
+			}
+		});
+	</script>
 </polymer-element>
