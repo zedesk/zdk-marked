@@ -12,26 +12,30 @@
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
         
         <script src="../platform/platform.js"></script>
-        <link rel="import" href="zdk-marked.htm">
+        <link rel="import" href="zdk-marked.html">
         
         <style>
             body {
                 font-family: Oxygen, Verdana, Helvetica;
                 font-size:14px;
             }
-            zdk-marked {
-                border:1px solid black;
-                height: 300px;
-                overflow: auto;
-                background:GhostWhite;
-                padding:10px;
-            }
+
+			[unresolved] { opacity:0; }
         </style>
     </head>
-    <body>
+    <body unresolved >
+			<style>
+			zdk-marked {
+				border:1px solid black;
+				height: 300px;
+				overflow: auto;
+				background:GhostWhite;
+				padding:10px;
+			}
+			</style>
         <h1>zdk-marked</h1>
         
-        <zdk-marked>
+        <zdk-marked unresolved >
 # Introduction
 
 Cette application doit permettre la saisie de fichier au format MarkDown et d'en faire un rendu que ce soit en version desktop ou en version mobile.
@@ -72,6 +76,15 @@ code HTML de la page de test
         </zdk-marked>
         
         <h3>use a file source</h3>
-        <zdk-marked src="test/test2.md"></zdk-marked>
+        <zdk-marked src="/bower_components/zdk-marked/test/test2.md"></zdk-marked>
+		
+		<script>
+		window.addEventListener("polymer-ready", function() {
+			var unresolveds = document.querySelectorAll("[unresolved]");
+			[].slice.call(unresolveds,0).forEach( function(item) {
+				item.removeAttribute("unresolved");
+			})
+		},false)
+		</script>
     </body>
 </html>
