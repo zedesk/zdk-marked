@@ -1,6 +1,6 @@
 {
   "name": "zdk-marked",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "authors": [
     "Fabrice <fabrice.lecoz@zedesk.net>"
   ],
@@ -11,6 +11,9 @@
     "polymer",
     "markdown"
   ],
+  "main": [
+    "zdk-marked.html"
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -20,9 +23,8 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "polymer#0.3.3",
-    "highlightjs": "8.0.0"
+    "polymer": "Polymer/polymer#0.4.2",
+    "highlightjs": "8.3.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
