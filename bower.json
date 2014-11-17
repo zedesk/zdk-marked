@@ -1,6 +1,6 @@
 {
   "name": "zdk-marked",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "authors": [
     "Fabrice <fabrice.lecoz@zedesk.net>"
   ],
@@ -23,7 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#0.4.2",
+    "polymer": "Polymer/polymer#~0.5.1",
     "highlightjs": "8.3.0"
   },
   "devDependencies": {}
